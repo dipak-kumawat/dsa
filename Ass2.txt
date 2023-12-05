@@ -1,0 +1,313 @@
+Name:- Kamlesh Rajendr Jadhav
+Roll No:- 27  Div:- B
+Batch:- B2 
+			Assignment No :-2
+
+
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node
+{
+    int data;
+    struct node *next;
+};
+
+struct node *head=NULL,*ptr;
+
+void createList()
+{
+    if (head == NULL) {
+        int n;
+        printf("\nEnter the number of nodes: ");
+        scanf("%d", &n);
+        if (n != 0) {
+            int value;
+            struct node* temp;
+            struct node* ptr;
+            temp = (struct node *)malloc(sizeof(struct node));
+            head = temp;
+            ptr = head;
+            printf("\nEnter number to"
+                   " be inserted : ");
+            scanf("%d", &value);
+            head->data = value;
+  
+            for (int i = 2; i <= n; i++) {
+                temp = (struct node *)malloc(sizeof(struct node));
+                ptr->next = temp;
+                printf("\nEnter number to"
+                       " be inserted : ");
+                scanf("%d", &value);
+                temp->data = value;
+                ptr = ptr->next;
+            }
+        }
+        printf("\nThe list is created\n");
+    }
+    else
+        printf("\nThe list is already created\n");
+}
+
+void insert_begin(int value)
+{
+    struct node *temp;
+    temp=(struct node *)malloc(sizeof(struct node));
+    temp->data=value;
+    temp->next=NULL;
+    if(head==NULL)
+    {
+        head=temp;
+    }
+    else
+    {
+        temp->next=head;
+        head=temp;
+    }
+}
+
+void insert_end(int value)
+{
+    struct node *temp;
+    temp=(struct node *)malloc(sizeof(struct node));
+    temp->data=value;
+    if(head==NULL)
+    {
+        head=temp;
+    }
+    else
+    {
+        ptr=head;
+        while(ptr->next!=NULL)
+        {
+            ptr=ptr->next;
+        }
+        ptr->next=temp;
+        temp->next=NULL;
+    }
+}
+
+void insert_middle(int value,int pos)
+{
+    struct node *temp;
+    temp=(struct node *)malloc(sizeof(struct node));
+    temp->data=value;
+    if(head==NULL)
+    {
+        head=temp;
+    }
+    else
+    {
+        ptr=head;
+        while(ptr->data!=pos)
+        {
+            ptr=ptr->next;
+        }
+        temp->next=ptr->next;
+        ptr->next=temp;
+    }
+}
+
+void delete_begin()
+{
+    if(head==NULL)
+    {
+        printf("list is empty, deletion is not possible\n");
+    }
+    else
+    {
+        ptr=head;
+        head=head->next;
+        ptr->next=NULL;
+        free(ptr);
+    }
+}
+
+void delete_end()
+{
+    if(head==NULL)
+    {
+        printf("list is empty, deletion is not possible\n");
+    }
+    else
+    {
+        struct node *p;
+        ptr=head;
+        while(ptr->next!=NULL)
+        {
+            p=ptr;
+            ptr=ptr->next;
+        }
+        p->next=NULL;
+        free(ptr);
+    }
+       
+}
+
+void delete_middle(int value)
+{
+    if(head==NULL)
+    {
+        printf("list is empty, deletion is not possible\n");
+    }
+    else
+    {
+        struct node *p;
+        ptr=head;
+        while(ptr->data!=value)
+        {
+            p=ptr;
+            ptr=ptr->next;
+        }
+        p->next=ptr->next;
+        free(ptr);
+    }
+}
+
+void count()
+{
+    int len=0;
+    ptr=head;
+    if(head==NULL)
+    {
+        printf("List is empty\n");
+    }
+    else
+    {
+        while(ptr!=NULL)
+        {
+            len++;
+            ptr=ptr->next;
+        }
+    }
+    printf("Count is %d\t",len);
+}
+
+void search(int value)
+{
+    printf("Enter the element\n");
+    scanf("%d",&value);
+    ptr=head;
+    while(ptr!=NULL)
+    {
+        if(ptr->data==value)
+        {
+            printf("Present in list\n");
+            return;
+        }
+        ptr=ptr->next;
+    }
+    printf("Not present in list\n");
+}
+
+void reverse()
+{
+    struct node *prevnode,*currentnode,*nextnode;
+    prevnode=NULL;
+    currentnode=nextnode=head;
+    while(nextnode!=NULL)
+    {
+        nextnode=nextnode->next;
+        currentnode->next=prevnode;
+        prevnode=currentnode;
+        currentnode=nextnode;
+    }
+    head=prevnode;
+}
+
+void display()
+{
+    if(head==NULL)
+    {
+        printf("list is empty\n");
+    }
+    else
+    {
+        ptr=head;
+        while(ptr!=NULL)
+        {
+            printf("-> %d",ptr->data);
+            ptr=ptr->next;
+        }
+        printf("\n");
+    }
+}
+
+void main()
+{
+    int choice,value,position;
+    printf("1.createList\n 2. Insert Begin\n 3.Insert End\n 4. Insert middle\n 5.delete begin\n 6.delete end\n 7. delete middle\n  8.Count\n 9.display\n 10. search\n 11.reverse\n");
+    while(1)
+    {
+        printf("Enter the choice\n");
+        scanf("%d",&choice);
+        switch(choice)
+        {
+            case 1 :
+            createList();
+            break;
+            
+            case 2 : 
+            printf("Enter the value\n");
+            scanf("%d",&value);
+            insert_begin(value);
+            display();
+            break;
+            
+            case 3 :
+            printf("Enter the value\n");
+            scanf("%d",&value);
+            insert_end(value);
+            display();
+            break;
+            
+            case 4 :
+            printf("Enter the value\n");
+            scanf("%d",&value);
+            printf("Enter the position\n");
+            scanf("%d",&position);
+            insert_middle(value,position);
+            display();
+            break;
+            
+            case 5 :
+            delete_begin();
+            display();
+            break;
+            
+            case 6 :
+            delete_end();
+            display();
+            break;
+            
+            case 7 :
+            printf("Enter which value you want to delete\n");
+            scanf("%d",&value);
+            delete_middle(value);
+            display();
+            break;
+            
+            case 8 :
+            count();
+            break;
+            
+            case 9 :
+            display();
+            break;
+            
+            case 10:
+            search(value);
+            break;
+            
+            case 11:
+            reverse();
+            display();
+            break;
+            
+            case 12 :
+            exit(0);
+            
+            
+        }
+    }
+}

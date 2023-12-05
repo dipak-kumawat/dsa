@@ -1,0 +1,105 @@
+Name:- Kamlesh Rajendr Jadhav
+Roll No:- 27  Div:- B
+Batch:- B2 
+			Assignment No :-10
+
+
+#include<stdio.h>
+
+struct student{
+    int roll,per;
+    char name[100];
+};
+
+int main()
+{
+   int i, first, last, middle, n, search, array[100],q;
+   struct student stu[100];
+   printf("Enter number of Students:\n");
+   scanf("%d",&n); 
+   
+   for (i = 0; i < n; i++)
+   {
+       printf("\nEnter the roll number:");
+       scanf("%d",&stu[i].roll);
+       printf("\nEnter the name:");
+       scanf("%s",stu[i].name);
+       printf("\nEnter the percentage:");
+       scanf("%d",&stu[i].per);
+   }
+   printf("\nThe entered details are:");
+   for (i = 0; i < n; i++)
+   {
+   printf("\nRoll=>%d",stu[i].roll);
+   printf("\nName=>%s",stu[i].name);
+   printf("\nPercentage=>%d",stu[i].per);
+   
+   }
+   do{
+   printf("\nEnter the roll to find:");
+   scanf("%d", &search);
+   first = 0;
+   last = n - 1;
+   middle = (first+last)/2;
+   while (first <= last) 
+   {
+      if (stu[middle].roll < search)
+         first = middle + 1;    
+      else if (stu[middle].roll == search) {
+         printf("%d is present at index %d.\n", search, middle+1);
+         break;
+      }
+      else
+         last = middle - 1;
+      middle = (first + last)/2;
+   }
+   if (first > last)
+      printf("Not found! %d is not present in the list.\n", search);
+   printf("\ndo you want to search agian if yes enter 1 otherwise 0");
+   scanf("%d",&q);
+}
+   while(q==1);
+}
+
+
+OUTPUT:-
+Enter number of Students:
+3
+
+Enter the roll number:1
+
+Enter the name:shivam
+
+Enter the percentage:90
+
+Enter the roll number:2
+
+Enter the name:sujal
+
+Enter the percentage:91
+
+Enter the roll number:3
+
+Enter the name:vaibhav
+
+Enter the percentage:99
+
+The entered details are:
+Roll=>1
+Name=>shivam
+Percentage=>90
+Roll=>2
+Name=>sujal
+Percentage=>91
+Roll=>3
+Name=>vaibhav
+Percentage=>99
+Enter the roll to find:2
+2 is present at index 2.
+
+do you want to search agian if yes enter 1 otherwise 01
+
+Enter the roll to find:5
+Not found! 5 is not present in the list.
+
+do you want to search agian if yes enter 1 otherwise 0^A

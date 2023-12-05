@@ -1,0 +1,180 @@
+Name:- Kamlesh Rajendr Jadhav
+Roll No:- 27  Div:- B
+Batch:- B2 
+			Assignment No :-4
+
+
+#postfix evaluation program
+#include<stdio.h>
+void sum();
+void sub();
+void mult();
+void division();
+void power();
+
+int stack[20],top=-1;
+main()
+{
+    char st[30];
+    int i;
+    printf("Enter postfix expression and not give space between them\n");
+    scanf("%s",st);
+    for(i=0;st[i]!='\0';i++)
+    {
+        if(st[i]!=' ')
+        {
+            switch(st[i])
+            {
+                case '+':
+                        sum();
+                        break;
+                case '-':
+                        sub();
+                        break;
+                case '*':
+                        mult();
+                        break;
+                case '/':
+                        division();
+                        break;
+                case '^':
+                        power();
+                        break;
+                default:
+                        top++;
+                        stack[top]=st[i]-48;
+                
+            }
+        }
+    }
+    printf("The result is %d",stack[top]);
+}
+
+void sum()
+{
+    int res,op1,op2;
+    op1=stack[top];
+    top--;
+    op2=stack[top];
+    top--;
+    res=op2+op1;
+    top++;
+    stack[top]=res;
+}
+
+void sub()
+{
+    int res,op1,op2;
+    op1=stack[top];
+    top--;
+    op2=stack[top];
+    top--;
+    res=op2-op1;
+    top++;
+    stack[top]=res;
+}
+
+void mult()
+{
+    int res,op1,op2;
+    op1=stack[top];
+    top--;
+    op2=stack[top];
+    top--;
+    res=op2*op1;
+    top++;
+    stack[top]=res;
+}
+
+void division()
+{
+    int res,op1,op2;
+    op1=stack[top];
+    top--;
+    op2=stack[top];
+    top--;
+    res=op2/op1;
+    top++;
+    stack[top]=res;
+}
+
+void power()
+{
+    int res=1,op1,op2,i;
+    op1=stack[top];
+    top--;
+    op2=stack[top];
+    top--;
+    for(i=0;i<op1;i++)
+    {
+        res=res*op2;
+    }
+    top++;
+    stack[top]=res;
+}
+
+#Infix to Postfix conversion
+
+#include<stdio.h>
+
+char stack[20];
+int top=-1;
+
+void push(char x)
+{
+    stack[++top]=x;
+}
+
+char pop()
+{
+    if(top==-1)
+        return -1;
+    else
+        return stack[top--];
+}
+
+int priority(char x)
+{
+    if(x == '(')
+        return 0;
+    if(x == '+' || x =='-')
+        return 1;
+    if(x == '*' || x =='/')
+        return 2;
+    if(x == '^')
+        return 3;
+}
+
+int main()
+{
+    char exp[20];
+    char *e,x;
+    printf("Enter the expression :\n");
+    scanf("%s",exp);
+    e=exp;
+    while(*e !='\0')
+    {
+        if(isalnum(*e))
+            printf("%c",*e);
+        else if(*e =='(')
+            push(*e);
+        else if(*e == ')')
+        {
+            while((x=pop()) != '(' )
+            printf("%c",x);
+        }
+        else
+        {
+            while(priority(stack[top])>=priority(*e))
+            {
+                printf("%c",pop());
+            }
+            push(*e);
+        }
+        e++;
+    }
+    while(top!=-1)
+    {
+        printf("%c",pop());
+    }
+}
