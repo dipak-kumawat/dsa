@@ -1,5 +1,5 @@
 /*
-Write a program to implement circular queue using arrays
+Write a program to implement circular queue using arrays 
 */
 
 
