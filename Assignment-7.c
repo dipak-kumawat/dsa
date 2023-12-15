@@ -2,7 +2,7 @@
 Write a program that reads a list of names and telephone numbers from
 user and insert into a BST tree. Once the tree has been built, present the
 user with a menu that allows him to search the list for a specified name,
-insert new name, delete an existing name or print the entire phone list
+insert new name, delete an existing name or print the entire phone list 
 */
 
 #include <stdio.h>
