@@ -3,7 +3,7 @@ Write a program to represent a graph of any city using adjacency
 matrix /adjacency list. Nodes should represent the various areas in the
 city and links should represent the distance between them. Find the
 shortest path of your college from your home using Dijkstra's
-algorithm 
+algorithm  
 */
 
 #include <stdio.h>
