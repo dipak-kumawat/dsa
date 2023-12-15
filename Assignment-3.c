@@ -1,3 +1,10 @@
+/* Write a menu driven program which will maintain a list of car models,
+their price, name of the manufacture, engine capacity etc. as a doubly
+linked list. The menu should make provisions for inserting information
+pertaining to new car models, delete obsolete models, update data such as
+price besides answering queries such as listing all car models within a
+price range specified by the client and listing all details given a car model*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
