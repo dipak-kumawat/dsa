@@ -1,6 +1,8 @@
-/*Write a program to create graph, use the map of any city as the graph.
+/*
+Write a program to create graph, use the map of any city as the graph.
 Represent graph using adjacency list/adjacency matrix and perform
-Depth First Search and Breadth First Search*/
+Depth First Search and Breadth First Search
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
