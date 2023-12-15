@@ -2,7 +2,7 @@
 Write a program to create student database. Database contains different
 fields of student like Roll No, Name and percentage. Search a
 particular student according to roll number using binary search.
-*/
+*/ 
 
 #include <stdio.h>
 #include <stdlib.h>
