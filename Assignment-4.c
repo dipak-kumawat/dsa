@@ -1,6 +1,6 @@
 /*\
 Write a program to implement stack as an ADT. Use this ADT to
-perform expression conversion and evaluation. (Infix – Postfix)
+perform expression conversion and evaluation. (Infix – Postfix) 
 */
 #include <stdio.h>
 #include <stdlib.h>
