@@ -1,5 +1,5 @@
 /*
-Write a program to implement Merge sort / Quick sort method
+Write a program to implement Merge sort / Quick sort method 
 */
 
 #include <stdio.h>
