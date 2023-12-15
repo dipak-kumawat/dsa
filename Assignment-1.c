@@ -1,6 +1,6 @@
 /*
 Write a program to represent sparse matrix using array and perform
-simple and fast transpose
+simple and fast transpose     
 */
 
 #include <stdio.h>
