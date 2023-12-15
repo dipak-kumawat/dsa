@@ -1,7 +1,7 @@
 /*
 Write a program to create binary tree. Find height of the tree and print
 leaf nodes. Find mirror image, print original and mirror image using
-level-wise printing
+level-wise printing  
 */
 
 #include <stdio.h>
