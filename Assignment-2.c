@@ -2,7 +2,7 @@
 
 Q-Write a menu driven program to perform following operations on
 singly linked list: Create, Insert, Delete, reverse, search, count and
-Display
+Display  
 */
 
 #include <stdio.h>
